@@ -58,7 +58,7 @@ O sistema centraliza autenticação, gestão de horários, pagamentos e notifica
 | ----- | ----- | ----- |
 | **Backend (API)** | Node.js \+ Express | Regras de negócio, endpoints, integrações |
 | **Frontend Web** | React | Interface de usuário |
-| **Banco de Dados** | PostgreSQL | Armazenamento persistente |
+| **Banco de Dados** | Armazenamento persistente |
 | **Worker de Notificações** | Node.js | Envio de emails e lembretes |
 | **Pagamento Externo** | API de terceiros | Processamento de pagamento |
 
@@ -83,17 +83,6 @@ O sistema centraliza autenticação, gestão de horários, pagamentos e notifica
 * Manutenção mais fácil.  
 * Baixo custo de implementação.  
 * Módulos independentes sem complexidade de microserviços.
-
----
-
-## **ADR 002 — Banco de Dados (PostgreSQL)**
-
-**Motivos:**
-
-* Suporte completo a transações ACID.  
-* Excelente para dados relacionais.  
-* Alta estabilidade e maturidade.  
-* Boa integração com clouds e ORMs modernos.
 
 ---
 

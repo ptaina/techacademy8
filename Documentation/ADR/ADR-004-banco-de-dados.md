@@ -16,9 +16,9 @@ Alternativas consideradas
 
 # Decisão tomada
 
-A decisão tomada foi adotar uma estratégia de banco de dados híbrida utilizando PortgreSQL e MySQL.
+A decisão tomada foi adotar uma estratégia de banco de dados MySQL.
 Consequências
 
-**Positivo:** Consistência Segura, com o uso do PostgreSQL para transações críticas e complexas, flexibilidade de stack, uma combinação dos pontos fortes de ambos os bancos de dados e suporte. 
-**Negativo:** Aumento da complexidade operacional, já que a equipe precisará gerenciar e monitorar dois bancos de dados e suas respectivas migrações e manutenção de schemas.
+**Positivo:** Consistência Segura, com o uso do MySQL para transações críticas e complexas, flexibilidade de stack e suporte. 
+**Negativo:** Escalabilidade limitada, dificuldade em backups incrementais.
 

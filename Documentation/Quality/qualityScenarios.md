@@ -38,12 +38,12 @@ Este documento define os Quality Scenarios do MedConnect, estabelecendo métrica
 
 **Cenários:**
 
-- Queda momentânea do PostgreSQL ou MySQL.
+- Queda momentânea do  MySQL.
 - Falha temporária no envio de notificações pelo microsserviço de mensageria.
 
 ## Critérios de aceitação:
 
-- Operações críticas devem seguir padrões ACID (em especial transações no PostgreSQL).
+- Operações críticas devem seguir padrões ACID.
 - Em caso de falha no banco, sistema deve tentar novamente:
 - **Login:** até 3 tentativas com backoff exponencial.
 - **Cadastro de pacientes:** até 2 tentativas.
