@@ -1,0 +1,12 @@
+{
+  "name": "notifications-service",
+  "version": "1.0.0",
+  "description": "Microsserviço de Logs e Notificações",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ioredis": "^5.3.2"
+  }
+}

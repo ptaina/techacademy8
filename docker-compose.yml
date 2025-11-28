@@ -1,0 +1,100 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      # Isso libera o acesso sem senha
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: medconnect
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # REDIS (Cache e Mensageria)
+  redis:
+    image: redis:alpine
+    container_name: redis-container
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # BACKEND (Conecta no 'database' sem senha)
+  backend:
+    build: ./backend
+    container_name: backend-container
+    environment:
+      # Forçando as configurações aqui para ignorar o .env antigo
+      - PORT=3000
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=medconnect
+      - JWT_SECRETS=malfeito-feito
+      - JWT_EXPIRES_IN=7d
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      database:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - ./backend/uploads:/app/uploads
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # MICROSSERVIÇO (Notificações)
+  notifications:
+    build: ./notifications-service
+    container_name: notifications-container
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      redis:
+        condition: service_started
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # FRONTEND
+  frontend:
+    build: ./frontend
+    container_name: frontend-container
+    environment:
+      # Aponta para o Nginx (HTTPS)
+      - VITE_API_URL=https://localhost/api
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # NGINX (Proxy)
+  nginx:
+    build: ./nginx
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
