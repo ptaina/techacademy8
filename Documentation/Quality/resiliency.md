@@ -12,6 +12,6 @@
 
 ## Módulo de agendamento
 
-**Retry:** Retry em serviços de fornecedores externos de notificação (SMS/e-mail).
+**Retry:** Retry em serviços de fornecedores externos de notificação (e-mail).
 **Timeout:** 3 segundos para requisições a APIs externas.
 **Circuit breaker:** Prevê isolamento de falhas de APIs externas de notificação, evitando impacto no sistema principal de agendamento. Abre após 10 falhas consecutivas, com reset após 60s.

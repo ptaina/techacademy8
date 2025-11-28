@@ -5,7 +5,8 @@
 ## Contexto e Problema
 
 O projeto requer um backend que sirva como a espinha dorsal do sistema ERP (módulos de cadastro, financeiro, estoque e mensageria). O framework deve ser robusto, escalável, e, idealmente, ter compatibilidade nativa com TypeScript para garantir a consistência e a segurança de tipos em toda a aplicação.
-Alternativas consideradas
+
+# Alternativas consideradas
 
 **NestJS:** Estrutura modular, uso nativo de TypeScript, e fácil integração com bancos de dados relacionais e serviços de mensageria
 

@@ -5,7 +5,8 @@
 # Contexto e Problema
 
 O ERP precisa ser implantado de forma consistente em diferentes ambientes (desenvolvimento, homologação e produção) e suportar escalabilidade.
-Alternativas consideradas
+
+# Alternativas consideradas
 
 **Docker e Docker Compose:** Padroniza ambiente, fácil de configurar local e em servidores.
 

@@ -5,8 +5,8 @@
 # Contexto e Problema
 
 O sistema do MedConnect requer o armazenamento de dados com alta consistência e integridade, essenciais para informações financeiras, cadastros de pacientes, agendamentos e transações. É crucial que o banco de dados suporte transações complexas e consultas robustas para geração de relatórios.
-Alternativas consideradas
 
+# Alternativas consideradas
 
 **PostgreSQL:** Relacional, confiável, excelente suporte a transações complexas e funções avançadas. Grande comunidade. Estrutura rígida e curva de aprendizado mais acentuada para recursos avançados.
 
@@ -17,9 +17,10 @@ Alternativas consideradas
 # Decisão tomada
 
 A decisão tomada foi adotar uma estratégia de banco de dados MySQL.
-Consequências
 
-**Positivo:** Consistência Segura, com o uso do MySQL para transações críticas e complexas, flexibilidade de stack e suporte. 
+# Consequências
+
+**Positivo:** Consistência Segura, com o uso do MySQL para transações críticas e complexas, e suporte. 
 **Negativo:** Escalabilidade limitada, dificuldade em backups incrementais.
 
 
