@@ -155,3 +155,4 @@ Este documento define os Quality Scenarios do MedConnect, estabelecendo métrica
 - Retry em APIs externas
 - Circuit breaker após 10 falhas. Reset após 60s.
 - Mecanismo de lock otimista para evitar conflitos
+

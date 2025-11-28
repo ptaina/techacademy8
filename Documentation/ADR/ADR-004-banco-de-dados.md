@@ -22,3 +22,4 @@ Consequências
 **Positivo:** Consistência Segura, com o uso do MySQL para transações críticas e complexas, flexibilidade de stack e suporte. 
 **Negativo:** Escalabilidade limitada, dificuldade em backups incrementais.
 
+

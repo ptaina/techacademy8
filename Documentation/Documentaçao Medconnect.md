@@ -361,3 +361,4 @@ O sistema centraliza autenticação, gestão de horários, pagamentos e notifica
 4. Reinicie o serviço.  
 5. Caso persista, acione o suporte do provedor.
 
+
